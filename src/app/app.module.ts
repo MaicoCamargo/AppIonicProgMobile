@@ -7,20 +7,30 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TarefaServiceProvider } from '../providers/tarefa-service/tarefa-service';
+import {HttpModule} from "@angular/http";
+import {EditarTarefaPage} from "../pages/editar-tarefa/editar-tarefa";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    EditarTarefaPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({ // para usar um banco de dados no celular
+      name: 'tarefas',//nome do db
+      driverOrder:['indexeddb', 'sqlite', 'websql']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    EditarTarefaPage
   ],
   providers: [
     StatusBar,

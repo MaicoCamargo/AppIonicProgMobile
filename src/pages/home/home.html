@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Número de tarefas {{ tarefas.length}}
+      Número de tarefas ()
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,8 +9,8 @@
 <ion-content padding>
 
   <ion-list no-lines>
-    <button ion-item *ngFor="let tarefa of tarefas" (click)="itemSelected(item)">
-      {{ tarefa.nome }} - {{tarefa.atividade.nome }}
+    <button ion-item *ngFor="let tarefa of tarefas" (click)="tarefaSelecionada(tarefa)">
+      {{ tarefa.nome }}
     </button>
   </ion-list>
 

@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Tarefa} from "../../pages/model/Tarefa.model";
+
 import "rxjs/add/operator/catch";
 import {Observable} from "rxjs/Observable";
+import {Tarefa} from "../../pages/model/Tarefa.model";
+
 
 /*
   Generated class for the TarefaServiceProvider provider.
@@ -18,8 +20,11 @@ export class TarefaServiceProvider {
     console.log('Hello TarefaServiceProvider Provider');
   }
 
-  listarTarefa(): Observable<Tarefa{
-     return this.http.get('http://localhost:8080/RestAngular2/tarefa').map(res => res.json() as Tarefa).catch( error => (Observable.throw(error)));
+  listarTarefa() : Observable<Tarefa[]>  {
+      this.http.get('http://localhost:8080/RestAngular2/tarefa').map(res => res.json() as Tarefa); //.catch(error => Observable.throw(error));
 
+      console.log(this.http.get('http://localhost:8080/RestAngular2/tarefa').map(res => res.json() as Tarefa));
+
+    return this.http.get('http://localhost:8080/RestAngular2/tarefa').map(res => res.json() as Tarefa);
   }
 }
