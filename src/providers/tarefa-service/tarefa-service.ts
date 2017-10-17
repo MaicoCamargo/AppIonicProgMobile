@@ -27,4 +27,9 @@ export class TarefaServiceProvider {
 
     return this.http.get('http://localhost:8080/RestAngular2/tarefa').map(res => res.json() as Tarefa);
   }
+
+  cadastraTarefaBackend(tarefa: Tarefa ) : Observable<Tarefa> {
+    console.log("dentro do backend");
+    return this.http.post('http://localhost:8080/RestAngular2/cadastrarTarefa/',tarefa).map(res =>  res.json() as Tarefa);
+  }
 }
